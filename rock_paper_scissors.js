@@ -12,43 +12,72 @@ function computerPlay() {
     }
 }
 
+//The function below return 0 if there is a tie, -1 if player has lost and 1 if player has won
 function playRound(playerSelection, computerSelection) {
     if(playerSelection.toLowerCase() === "rock") {
         if(computerSelection === "rock") {
-            return "It's a tie! Either Player and Computer played Rock!";
+            return 0;
         }
         else if(computerSelection === "paper") {
-            return "Player losts! Paper beats Rock!";
+            return -1;
         }
         else {
-            return "Player wins! Rock beats Scissors!";
+            return 1;
         }
     }
     else if(playerSelection.toLowerCase() === "paper") {
         if(computerSelection === "paper") {
-            return "It's a tie! Either Player and Computer played Paper!";
+            return 0;
         }
         else if(computerSelection === "rock") {
-            return "Player wins! Paper beats Rock!";
+            return 1;
         }
         else {
-            return "Player losts! Scissors beats Paper!";
+            return -1;
         }
     }
     else  {
         if(computerSelection === "paper") {
-            return "Player wins! Scissors beats Paper!";
+            return 1;
         }
         else if(computerSelection === "rock") {
-            return "Player losts! Rock beats Scissors!";
+            return -1;
         }
         else {
-            return "It's a tie! Either Player and Computer played Scissors!";
+            return 0;
         }
     }
 }
 
-let playerSelection = prompt("Choose your move: ");
-let computerSelection = computerPlay();
-console.log("Computer choosed ", computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for(let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Choose your move: ");
+        let computerSelection = computerPlay();
+        console.log("Computer choosed ", computerSelection);
+        let result = playRound(playerSelection, computerSelection);
+        if(result === 0) {
+            console.log("It's a tie! Score: Player ", playerScore, "-", computerScore, " Computer");
+        }
+        else if(result === 1) {
+            playerScore++;
+            console.log("Player win! Score: Player", playerScore, "-", computerScore, " Computer");
+        }
+        else {
+            computerScore++;
+            console.log("Player lost! Score: Player", playerScore, "-", computerScore, " Computer");
+        }
+        if(computerScore === 3) {
+            console.log("Game has end! Computer is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
+            return;
+        }
+        if(playerScore === 3) {
+            console.log("Game has end! Player is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
+            return;
+        }
+    }
+    console.log("Game has end! Score: ", playerScore, "-", computerScore, " Computer")
+}
+
+game();
