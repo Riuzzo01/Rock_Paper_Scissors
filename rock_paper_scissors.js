@@ -50,36 +50,34 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(playerSelection) {
-    let playerScore = 0;
-    let computerScore = 0;
     let computerSelection = computerPlay();
-    console.log("Computer choosed ", computerSelection);
+    const compMove = document.querySelector(".compmove");
+    compMove.textContent = "Computer choose " + computerSelection;
     let result = playRound(playerSelection, computerSelection);
+    const score = document.createElement("div");
     if(result === 0) {
-       console.log("It's a tie! Score: Player ", playerScore, "-", computerScore, " Computer");
+        score.textContent = "It's a tie! Score: Player " + playerScore + "-" + computerScore + " Computer";
     }
     else if(result === 1) {
         playerScore++;
-        console.log("Player win! Score: Player", playerScore, "-", computerScore, " Computer");
+        score.textContent = "Player win! Score: Player " + playerScore + "-" + computerScore + " Computer";
     }
     else {
         computerScore++;
-        console.log("Player lost! Score: Player", playerScore, "-", computerScore, " Computer");
+        score.textContent = "Player lost! Score: Player " + playerScore + "-" + computerScore + " Computer";
     }
-    if(computerScore === 3) {
-        console.log("Game has end! Computer is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
-        return;
+    compMove.appendChild(score);
+    if(computerScore === 5 || playerScore === 5) {
+        alert("Game Finished!!!")
     }
-    if(playerScore === 3) {
-        console.log("Game has end! Player is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
-        return;
-    }
-    console.log("Game has end! Score: ", playerScore, "-", computerScore, " Computer")
 }
 
 const btnPaper = document.getElementById('paper');
 const btnRock = document.getElementById('rock');
 const btnScissors = document.getElementById('scissors');
+
+let playerScore = 0;
+let computerScore = 0;
 
 btnPaper.addEventListener('click', () => {game("paper");});
 btnRock.addEventListener('click', () => {game("rock");});
