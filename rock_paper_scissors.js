@@ -49,35 +49,39 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+function game(playerSelection) {
     let playerScore = 0;
     let computerScore = 0;
-    for(let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Choose your move: ");
-        let computerSelection = computerPlay();
-        console.log("Computer choosed ", computerSelection);
-        let result = playRound(playerSelection, computerSelection);
-        if(result === 0) {
-            console.log("It's a tie! Score: Player ", playerScore, "-", computerScore, " Computer");
-        }
-        else if(result === 1) {
-            playerScore++;
-            console.log("Player win! Score: Player", playerScore, "-", computerScore, " Computer");
-        }
-        else {
-            computerScore++;
-            console.log("Player lost! Score: Player", playerScore, "-", computerScore, " Computer");
-        }
-        if(computerScore === 3) {
-            console.log("Game has end! Computer is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
-            return;
-        }
-        if(playerScore === 3) {
-            console.log("Game has end! Player is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
-            return;
-        }
+    let computerSelection = computerPlay();
+    console.log("Computer choosed ", computerSelection);
+    let result = playRound(playerSelection, computerSelection);
+    if(result === 0) {
+       console.log("It's a tie! Score: Player ", playerScore, "-", computerScore, " Computer");
+    }
+    else if(result === 1) {
+        playerScore++;
+        console.log("Player win! Score: Player", playerScore, "-", computerScore, " Computer");
+    }
+    else {
+        computerScore++;
+        console.log("Player lost! Score: Player", playerScore, "-", computerScore, " Computer");
+    }
+    if(computerScore === 3) {
+        console.log("Game has end! Computer is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
+        return;
+    }
+    if(playerScore === 3) {
+        console.log("Game has end! Player is the winner!!! Score: Player ", playerScore, "-", computerScore, " Computer");
+        return;
     }
     console.log("Game has end! Score: ", playerScore, "-", computerScore, " Computer")
 }
 
-game();
+const btnPaper = document.getElementById('paper');
+const btnRock = document.getElementById('rock');
+const btnScissors = document.getElementById('scissors');
+
+btnPaper.addEventListener('click', () => {game("paper");});
+btnRock.addEventListener('click', () => {game("rock");});
+btnScissors.addEventListener('click', () => {game("scissors");});
+
