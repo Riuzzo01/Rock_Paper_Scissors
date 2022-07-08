@@ -1,0 +1,57 @@
+* {
+    background-color: red;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    margin: 20px;
+}
+
+.buttons button {
+    width: 300px;
+    height: 200px;
+    border: 2px;
+}
+
+.buttons button:hover {
+    background-color: goldenrod;
+}
+
+.buttons #paper {
+    background-image: url("https://cdn.pixabay.com/photo/2013/07/12/19/00/certificate-154169__480.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buttons #scissors {
+    background-image: url("https://cdn.pixabay.com/photo/2016/07/29/21/41/school-1555907__480.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buttons #rock {
+    background-image: url("https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576669__480.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.compmove {
+    text-align: center;
+    padding: 100px;
+    color: white;
+    font-size: x-large;
+    font-family: fantasy;
+}

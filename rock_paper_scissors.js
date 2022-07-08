@@ -67,8 +67,15 @@ function game(playerSelection) {
         score.textContent = "Player lost! Score: Player " + playerScore + "-" + computerScore + " Computer";
     }
     compMove.appendChild(score);
-    if(computerScore === 5 || playerScore === 5) {
-        alert("Game Finished!!!")
+    if(computerScore === 5) {
+        score.textContent = "Game Finished!! Computer Wins!!";
+        playerScore = 0;
+        computerScore = 0;
+    }
+    if(playerScore === 5) {
+        score.textContent = "Game Finished!! Player Wins!!";
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
@@ -82,4 +89,5 @@ let computerScore = 0;
 btnPaper.addEventListener('click', () => {game("paper");});
 btnRock.addEventListener('click', () => {game("rock");});
 btnScissors.addEventListener('click', () => {game("scissors");});
+
 
