@@ -52,6 +52,30 @@ function playRound(playerSelection, computerSelection) {
 function game(playerSelection) {
     let computerSelection = computerPlay();
     const compMove = document.querySelector(".compmove");
+    const move = document.querySelector("#" + computerSelection + "Computer");
+    move.setAttribute("style", "background-color: gold");
+    
+    if(computerSelection === "rock") {
+        const paper = document.querySelector("#paperComputer");
+        const scissors = document.querySelector("#scissorsComputer");
+        paper.setAttribute("style", "background-color: none");
+        scissors.setAttribute("style", "background-color: none");
+    }
+    
+    if(computerSelection === "paper") {
+        const rock = document.querySelector("#rockComputer");
+        const scissors = document.querySelector("#scissorsComputer");
+        rock.setAttribute("style", "background-color: none");
+        scissors.setAttribute("style", "background-color: none");
+    }
+
+    if(computerSelection === "scissors") {
+        const paper = document.querySelector("#paperComputer");
+        const rock = document.querySelector("#rockComputer");
+        paper.setAttribute("style", "background-color: none");
+        rock.setAttribute("style", "background-color: none");
+    }
+
     compMove.textContent = "Computer choose " + computerSelection;
     let result = playRound(playerSelection, computerSelection);
     const score = document.createElement("div");
@@ -79,9 +103,9 @@ function game(playerSelection) {
     }
 }
 
-const btnPaper = document.getElementById('paper');
-const btnRock = document.getElementById('rock');
-const btnScissors = document.getElementById('scissors');
+const btnPaper = document.getElementById('paperPlayer');
+const btnRock = document.getElementById('rockPlayer');
+const btnScissors = document.getElementById('scissorsPlayer');
 
 let playerScore = 0;
 let computerScore = 0;

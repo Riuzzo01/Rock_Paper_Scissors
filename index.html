@@ -10,11 +10,25 @@
 </head>
 <body>
     <h1>ROCK PAPER SCISSORS</h1>
-    <h3>Choose a move and try to defeat the Computer!</h3>
+    <h2>Choose a move and try to defeat the Computer!</h2>
     <div class="buttons">
-        <button id="paper"></button>
-        <button id="rock"></button>
-        <button id="scissors"></button>
+        <div class="player">
+            <h3>Player's moves</h3>
+            <div class="moves">
+                <button id="paperPlayer"></button>
+                <button id="rockPlayer"></button>
+                <button id="scissorsPlayer"></button>
+            </div>
+        </div> 
+        
+        <div class="computer">
+            <h3>Computer's moves</h3>
+            <div class="moves">
+                <button id="paperComputer"></button>
+                <button id="rockComputer"></button>
+                <button id="scissorsComputer"></button>
+            </div>
+        </div>
     </div>
     <div class="compmove"></div>
 </body>

@@ -6,42 +6,50 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 h3 {
     text-align: center;
 }
 
 .buttons {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     padding-top: 50px;
     margin: 20px;
 }
 
 .buttons button {
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 150px;
     border: 2px;
 }
 
-.buttons button:hover {
+.buttons .player button:hover {
     background-color: goldenrod;
 }
 
-.buttons #paper {
+.buttons #paperPlayer,
+.buttons #paperComputer {
     background-image: url("https://cdn.pixabay.com/photo/2013/07/12/19/00/certificate-154169__480.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.buttons #scissors {
+.buttons #scissorsPlayer,
+.buttons #scissorsComputer {
     background-image: url("https://cdn.pixabay.com/photo/2016/07/29/21/41/school-1555907__480.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.buttons #rock {
+.buttons #rockPlayer,
+.buttons #rockComputer {
     background-image: url("https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576669__480.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -53,5 +61,5 @@ h3 {
     padding: 100px;
     color: white;
     font-size: x-large;
-    font-family: fantasy;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
